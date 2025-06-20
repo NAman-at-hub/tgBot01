@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Telegram Web App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .file-box { margin: 20px 0; }
+    .ad-box { background: #eee; padding: 10px; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome, <span id="username"></span>!</h1>
+  <div class="file-box">
+    <p>Click below to download your requested file:</p>
+    <a href="YOUR_FILE_URL" download>Download File</a>
+  </div>
+  <div class="ad-box">
+    <!-- Ad placeholder -->
+    <p>📢 Your Ad Goes Here!</p>
+  </div>
+
+  <script>
+    let tg = window.Telegram.WebApp;
+    tg.ready();
+    document.getElementById("username").innerText = tg.initDataUnsafe.user?.first_name || "Guest";
+  </script>
+</body>
+</html>
